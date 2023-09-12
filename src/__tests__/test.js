@@ -46,17 +46,19 @@ test.each([
 test.each([
   [
     '3 characters',
+    ['Magician', 'Bowman', 'Swordsman'],
     ['Magician', 'Bowman', 'Swordsman']
   ],
   [
-    '3 characters',
-    ['Daemon', 'Magician', 'Swordsman'],
+    '3 characters with a recurring',
+    ['Daemon', 'Magician', 'Daemon'],
+    ['Daemon', 'Magician']
   ]
 ])// eslint-disable-next-line
-('testing addAll method with %s', (_, characters) => {
+('testing addAll method with %s', (_, characters, expected) => {
   const team = new Team();
 
   team.addAll(characters[0], characters[1], characters[2]);
 
-  expect(team.toArray()).toEqual(characters);
+  expect(team.toArray()).toEqual(expected);
 });
